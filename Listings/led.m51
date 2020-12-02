@@ -1,23 +1,24 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        12/02/2020  14:45:39  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/02/2020  17:01:12  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\io_main.obj, .\Objects\io_driver.obj, .\Objects\delay_driver.obj TO .\Objects\led 
->> PRINT (.\Listings\led.m51)
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\lcd8_main.obj, .\Objects\io_driver.obj, .\Objects\delay_driver.obj, .\Objects\lm01
+>> 6l_lcd_driver.obj TO .\Objects\led PRINT (.\Listings\led.m51)
 
 
 MEMORY MODEL: SMALL
 
 
 INPUT MODULES INCLUDED:
-  .\Objects\io_main.obj (IO_MAIN)
+  .\Objects\lcd8_main.obj (LCD8_MAIN)
   .\Objects\io_driver.obj (IO_DRIVER)
   .\Objects\delay_driver.obj (DELAY_DRIVER)
+  .\Objects\lm016l_lcd_driver.obj (LM016L_LCD_DRIVER)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
 
 
-LINK MAP OF MODULE:  .\Objects\led (IO_MAIN)
+LINK MAP OF MODULE:  .\Objects\led (LCD8_MAIN)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -37,54 +38,61 @@ LINK MAP OF MODULE:  .\Objects\led (IO_MAIN)
             CODE    09ABH     0068H     UNIT         ?PR?_IO_SET?IO_DRIVER
             CODE    0A13H     002EH     UNIT         ?PR?_WRITE_PORT?IO_DRIVER
             CODE    0A41H     0028H     UNIT         ?PR?_DELAY_MS?DELAY_DRIVER
-            CODE    0A69H     0026H     UNIT         ?PR?MAIN?IO_MAIN
-            CODE    0A8FH     0020H     UNIT         ?C?LIB_CODE
-            CODE    0AAFH     001FH     UNIT         ?PR?_READ_PORT?IO_DRIVER
-            CODE    0ACEH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0A69H     0020H     UNIT         ?C?LIB_CODE
+            CODE    0A89H     001FH     UNIT         ?PR?_READ_PORT?IO_DRIVER
+            CODE    0AA8H     0016H     UNIT         ?PR?_LCD8_DATA?LM016L_LCD_DRIVER
+            CODE    0ABEH     0016H     UNIT         ?PR?_LCD8_CMD?LM016L_LCD_DRIVER
+            CODE    0AD4H     0014H     UNIT         ?PR?LCD8_INIT?LM016L_LCD_DRIVER
+            CODE    0AE8H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0AF4H     000AH     UNIT         ?PR?MAIN?LCD8_MAIN
 
 
 
-OVERLAY MAP OF MODULE:   .\Objects\led (IO_MAIN)
+OVERLAY MAP OF MODULE:   .\Objects\led (LCD8_MAIN)
 
 
-SEGMENT                              DATA_GROUP 
-  +--> CALLED SEGMENT              START    LENGTH
---------------------------------------------------
-?C_C51STARTUP                      -----    -----
-  +--> ?PR?MAIN?IO_MAIN
+SEGMENT                                    DATA_GROUP 
+  +--> CALLED SEGMENT                    START    LENGTH
+--------------------------------------------------------
+?C_C51STARTUP                            -----    -----
+  +--> ?PR?MAIN?LCD8_MAIN
 
-?PR?MAIN?IO_MAIN                   -----    -----
-  +--> ?PR?_IO_CLR?IO_DRIVER
+?PR?MAIN?LCD8_MAIN                       -----    -----
+  +--> ?PR?LCD8_INIT?LM016L_LCD_DRIVER
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  17:01:12  PAGE 2
+
+
+  +--> ?PR?_LCD8_DATA?LM016L_LCD_DRIVER
+
+?PR?LCD8_INIT?LM016L_LCD_DRIVER          -----    -----
+  +--> ?PR?_LCD8_CMD?LM016L_LCD_DRIVER
+
+?PR?_LCD8_CMD?LM016L_LCD_DRIVER          -----    -----
   +--> ?PR?_DELAY_MS?DELAY_DRIVER
-  +--> ?PR?_IO_SET?IO_DRIVER
 
-?PR?_DELAY_MS?DELAY_DRIVER         0008H    0004H
-BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:39  PAGE 2
+?PR?_DELAY_MS?DELAY_DRIVER               0008H    0004H
 
-
-
+?PR?_LCD8_DATA?LM016L_LCD_DRIVER         -----    -----
+  +--> ?PR?_DELAY_MS?DELAY_DRIVER
 
 
-SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
+
+SYMBOL TABLE OF MODULE:  .\Objects\led (LCD8_MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
 
-  -------         MODULE        IO_MAIN
+  -------         MODULE        LCD8_MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0A69H         PUBLIC        main
+  C:0AF4H         PUBLIC        main
   -------         PROC          MAIN
-  C:0A69H         LINE#         2
-  C:0A69H         LINE#         3
-  C:0A69H         LINE#         12
-  C:0A69H         LINE#         13
-  C:0A69H         LINE#         14
-  C:0A70H         LINE#         15
-  C:0A7BH         LINE#         16
-  C:0A82H         LINE#         17
-  C:0A8DH         LINE#         18
+  C:0AF4H         LINE#         2
+  C:0AF4H         LINE#         3
+  C:0AF4H         LINE#         4
+  C:0AF7H         LINE#         5
+  C:0AFCH         LINE#         6
   -------         ENDPROC       MAIN
-  -------         ENDMOD        IO_MAIN
+  -------         ENDMOD        LCD8_MAIN
 
   -------         MODULE        IO_DRIVER
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -93,7 +101,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   C:09ABH         PUBLIC        _io_set
-  C:0AAFH         PUBLIC        _read_port
+  C:0A89H         PUBLIC        _read_port
   C:0A13H         PUBLIC        _write_port
   C:08B3H         PUBLIC        _io_read
   C:0800H         PUBLIC        _io_write
@@ -111,6 +119,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   C:082CH         LINE#         9
   C:082CH         LINE#         10
   C:082FH         LINE#         11
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  17:01:12  PAGE 3
+
+
   C:083EH         LINE#         13
   C:084BH         LINE#         15
   C:084DH         LINE#         16
@@ -119,9 +130,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   C:085FH         LINE#         20
   C:086CH         LINE#         21
   C:086EH         LINE#         22
-BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:39  PAGE 3
-
-
   C:086EH         LINE#         23
   C:0871H         LINE#         24
   C:0880H         LINE#         26
@@ -171,6 +179,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   C:09ABH         LINE#         64
   C:09C3H         LINE#         65
   C:09C6H         LINE#         66
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  17:01:12  PAGE 4
+
+
   C:09D4H         LINE#         67
   C:09D4H         LINE#         68
   C:09D4H         LINE#         69
@@ -179,9 +190,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   C:09E3H         LINE#         72
   C:09F0H         LINE#         73
   C:09F2H         LINE#         74
-BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:39  PAGE 4
-
-
   C:09F2H         LINE#         75
   C:09FFH         LINE#         76
   C:0A01H         LINE#         77
@@ -231,6 +239,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   C:0A36H         LINE#         114
   C:0A38H         LINE#         115
   C:0A3AH         LINE#         116
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  17:01:12  PAGE 5
+
+
   C:0A3CH         LINE#         117
   C:0A3EH         LINE#         118
   C:0A3EH         LINE#         120
@@ -239,27 +250,24 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   -------         ENDPROC       _WRITE_PORT
   -------         PROC          _READ_PORT
   D:0007H         SYMBOL        port
-BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:39  PAGE 5
-
-
   -------         DO            
   D:0006H         SYMBOL        temp
   -------         ENDDO         
-  C:0AAFH         LINE#         123
-  C:0AAFH         LINE#         124
-  C:0AAFH         LINE#         126
-  C:0ABDH         LINE#         127
-  C:0ABDH         LINE#         128
-  C:0ABFH         LINE#         129
-  C:0AC1H         LINE#         130
-  C:0AC3H         LINE#         131
-  C:0AC5H         LINE#         132
-  C:0AC7H         LINE#         133
-  C:0AC9H         LINE#         134
-  C:0ACBH         LINE#         135
-  C:0ACBH         LINE#         136
-  C:0ACBH         LINE#         137
-  C:0ACDH         LINE#         138
+  C:0A89H         LINE#         123
+  C:0A89H         LINE#         124
+  C:0A89H         LINE#         126
+  C:0A97H         LINE#         127
+  C:0A97H         LINE#         128
+  C:0A99H         LINE#         129
+  C:0A9BH         LINE#         130
+  C:0A9DH         LINE#         131
+  C:0A9FH         LINE#         132
+  C:0AA1H         LINE#         133
+  C:0AA3H         LINE#         134
+  C:0AA5H         LINE#         135
+  C:0AA5H         LINE#         136
+  C:0AA5H         LINE#         137
+  C:0AA7H         LINE#         138
   -------         ENDPROC       _READ_PORT
   -------         ENDMOD        IO_DRIVER
 
@@ -283,10 +291,57 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
   -------         ENDPROC       _DELAY_MS
   -------         ENDMOD        DELAY_DRIVER
 
+  -------         MODULE        LM016L_LCD_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0ABEH         PUBLIC        _lcd8_cmd
+  C:0AD4H         PUBLIC        lcd8_init
+  B:00A0H.2       PUBLIC        en
+  D:0080H         PUBLIC        lcd_port
+  B:00A0H.0       PUBLIC        rs
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  17:01:12  PAGE 6
+
+
+  B:00A0H.1       PUBLIC        rw
+  C:0AA8H         PUBLIC        _lcd8_data
+  -------         PROC          _LCD8_DATA
+  D:0007H         SYMBOL        Data
+  C:0AA8H         LINE#         7
+  C:0AA8H         LINE#         8
+  C:0AA8H         LINE#         9
+  C:0AAAH         LINE#         10
+  C:0AACH         LINE#         11
+  C:0AAEH         LINE#         12
+  C:0AB0H         LINE#         13
+  C:0ABBH         LINE#         14
+  C:0ABDH         LINE#         15
+  -------         ENDPROC       _LCD8_DATA
+  -------         PROC          _LCD8_CMD
+  D:0007H         SYMBOL        cmd
+  C:0ABEH         LINE#         16
+  C:0ABEH         LINE#         17
+  C:0ABEH         LINE#         18
+  C:0AC0H         LINE#         19
+  C:0AC2H         LINE#         20
+  C:0AC4H         LINE#         21
+  C:0AC6H         LINE#         22
+  C:0AD1H         LINE#         23
+  C:0AD3H         LINE#         24
+  -------         ENDPROC       _LCD8_CMD
+  -------         PROC          LCD8_INIT
+  C:0AD4H         LINE#         26
+  C:0AD4H         LINE#         27
+  C:0AD4H         LINE#         28
+  C:0AD9H         LINE#         29
+  C:0ADEH         LINE#         30
+  C:0AE3H         LINE#         31
+  -------         ENDPROC       LCD8_INIT
+  -------         ENDMOD        LM016L_LCD_DRIVER
+
   -------         MODULE        ?C?LLDIIDATA
-  C:0A98H         PUBLIC        ?C?LLDIIDATA
-  C:0A8FH         PUBLIC        ?C?LLDIIDATA1
-  C:0A91H         PUBLIC        ?C?LLDIIDATA8
+  C:0A72H         PUBLIC        ?C?LLDIIDATA
+  C:0A69H         PUBLIC        ?C?LLDIIDATA1
+  C:0A6BH         PUBLIC        ?C?LLDIIDATA8
   -------         ENDMOD        ?C?LLDIIDATA
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -296,17 +351,23 @@ SYMBOL TABLE OF MODULE:  .\Objects\led (IO_MAIN)
     SEGMENT: ?PR?_IO_READ?IO_DRIVER
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_WRITE_PORT?IO_DRIVER
+    SEGMENT: ?PR?_IO_SET?IO_DRIVER
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:39  PAGE 6
+    SEGMENT: ?PR?_IO_CLR?IO_DRIVER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WRITE_PORT?IO_DRIVER
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  17:01:12  PAGE 7
 
 
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_READ_PORT?IO_DRIVER
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02AEH BYTE (33%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02D2H BYTE (35%) *
 ******************************************************************************
 
-Program Size: data=13.0 xdata=0 code=733
-LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)
+Program Size: data=13.0 xdata=0 code=769
+LINK/LOCATE RUN COMPLETE.  6 WARNING(S),  0 ERROR(S)

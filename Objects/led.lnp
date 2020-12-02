@@ -1,5 +1,6 @@
-".\Objects\io_main.obj",
+".\Objects\lcd8_main.obj",
 ".\Objects\io_driver.obj",
-".\Objects\delay_driver.obj" 
+".\Objects\delay_driver.obj",
+".\Objects\lm016l_lcd_driver.obj" 
 TO ".\Objects\led" 
 PRINT(".\Listings\led.m51")

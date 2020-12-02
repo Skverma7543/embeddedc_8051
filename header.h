@@ -27,6 +27,17 @@ typedef double d32;
 #define PIN6 6
 #define PIN7 7
 
+/*******cgram pages******************/
+#define PAGE0 0
+#define PAGE1 1
+#define PAGE2 2
+#define PAGE3 3
+#define PAGE4 4
+#define PAGE5 5
+#define PAGE6 6
+#define PAGE7 7
+
+
 /*****************set/clear***************/
 #define SET 1
 #define CLEAR 0
@@ -44,3 +55,19 @@ s8 read_port(u8);
 
 /***************delay functions prototype***/
 void delay_ms(u32);
+
+
+/**************lcd lm016l driver prototype******/
+void lcd8_init(void);
+void lcd8_data(u8);
+void lcd8_cmd(u8);
+void lcd8_string(u8 *);
+void lcd4_init(void);
+void lcd4_data(u8);
+void lcd4_cmd(u8);
+void lcd4_string(u8 *);
+void cgram_init(void);
+
+
+
+#endif

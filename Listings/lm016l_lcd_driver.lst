@@ -1,0 +1,73 @@
+C51 COMPILER V9.50a   LM016L_LCD_DRIVER                                                    12/02/2020 21:04:22 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE LM016L_LCD_DRIVER
+OBJECT MODULE PLACED IN .\Objects\lm016l_lcd_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lm016l_lcd_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\lm016l_lcd_driver.lst) TABS(2) OBJECT(.\Objects\lm016l_lcd_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          sbit rs=P2^0;
+   4          sbit rw=P2^1;
+   5          sbit en=P2^2;
+   6          sfr lcd_port=0x80;
+   7          void lcd8_data(u8 Data)
+   8          {
+   9   1        lcd_port=Data; 
+  10   1        rs=1;     //data mode
+  11   1        rw=0;     //command mode
+  12   1        en=1;     // enable lcd for reading writing
+  13   1        delay_ms(2);  //delay is must becouse lcd take 1.5 ms to read data bus
+  14   1        en=0;        //disable read write
+  15   1      }
+  16          void lcd8_cmd(u8 cmd)
+  17          {
+  18   1        lcd_port=cmd;
+  19   1        rs=0; //command mode
+  20   1        rw=0; //write mode
+  21   1        en=1;
+  22   1        delay_ms(2);
+  23   1        en=0;
+  24   1      }
+  25          
+  26          void lcd8_init(void)
+  27          {
+  28   1        lcd8_cmd(0x1);
+  29   1        lcd8_cmd(0x2);   //clear and home
+  30   1        lcd8_cmd(0x38); // 8bit mode
+  31   1        lcd8_cmd(0xC); //cursor off and increament address pointer
+  32   1        lcd8_cmd(0x80); //starting position of lcd
+  33   1      }
+  34          
+  35          void lcd8_string(u8 *ptr)
+  36          {
+  37   1        s8 i;
+  38   1        for(i=0;ptr[i];i++)
+  39   1        {
+  40   2          if(ptr[i]=='\n')
+  41   2          {
+  42   3            lcd8_cmd(0xC0);
+  43   3            continue;
+  44   3          }
+  45   2          lcd8_data(ptr[i]);
+  46   2        }
+  47   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    137    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.50a   LM016L_LCD_DRIVER                                                    12/02/2020 21:04:22 PAGE 2   
+
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

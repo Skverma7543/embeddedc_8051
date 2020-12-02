@@ -1,0 +1,6 @@
+".\Objects\lcd8_main.obj",
+".\Objects\delay_driver.obj",
+".\Objects\lm016l_lcd_driver.obj",
+".\Objects\cgram_driver.obj" 
+TO ".\Objects\lcd" 
+PRINT(".\Listings\lcd.m51")

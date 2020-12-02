@@ -1,0 +1,234 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/02/2020  21:04:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\lcd8_main.obj, .\Objects\delay_driver.obj, .\Objects\lm016l_lcd_driver.obj, .\Obje
+>> cts\cgram_driver.obj TO .\Objects\lcd PRINT (.\Listings\lcd.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\lcd8_main.obj (LCD8_MAIN)
+  .\Objects\delay_driver.obj (DELAY_DRIVER)
+  .\Objects\lm016l_lcd_driver.obj (LM016L_LCD_DRIVER)
+  .\Objects\cgram_driver.obj (CGRAM_DRIVER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+
+
+LINK MAP OF MODULE:  .\Objects\lcd (LCD8_MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     004DH     UNIT         ?C?LIB_CODE
+            CODE    084DH     0044H     UNIT         ?PR?_LCD8_STRING?LM016L_LCD_DRIVER
+            CODE    0891H     002FH     UNIT         ?PR?CGRAM_INIT?CGRAM_DRIVER
+            CODE    08C0H     0028H     UNIT         ?PR?_DELAY_MS?DELAY_DRIVER
+            CODE    08E8H     0028H     UNIT         ?CO?CGRAM_DRIVER
+            CODE    0910H     0020H     UNIT         ?PR?MAIN?LCD8_MAIN
+            CODE    0930H     0019H     UNIT         ?PR?LCD8_INIT?LM016L_LCD_DRIVER
+            CODE    0949H     0016H     UNIT         ?PR?_LCD8_DATA?LM016L_LCD_DRIVER
+            CODE    095FH     0016H     UNIT         ?PR?_LCD8_CMD?LM016L_LCD_DRIVER
+            CODE    0975H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0981H     0009H     UNIT         ?CO?LCD8_MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\lcd (LCD8_MAIN)
+
+
+SEGMENT                                      DATA_GROUP 
+  +--> CALLED SEGMENT                      START    LENGTH
+----------------------------------------------------------
+?C_C51STARTUP                              -----    -----
+  +--> ?PR?MAIN?LCD8_MAIN
+
+?PR?MAIN?LCD8_MAIN                         -----    -----
+  +--> ?PR?CGRAM_INIT?CGRAM_DRIVER
+  +--> ?PR?LCD8_INIT?LM016L_LCD_DRIVER
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  21:04:53  PAGE 2
+
+
+  +--> ?PR?_LCD8_DATA?LM016L_LCD_DRIVER
+  +--> ?CO?LCD8_MAIN
+  +--> ?PR?_LCD8_STRING?LM016L_LCD_DRIVER
+
+?PR?CGRAM_INIT?CGRAM_DRIVER                0008H    0001H
+  +--> ?PR?_LCD8_CMD?LM016L_LCD_DRIVER
+  +--> ?CO?CGRAM_DRIVER
+  +--> ?PR?_LCD8_DATA?LM016L_LCD_DRIVER
+
+?PR?_LCD8_CMD?LM016L_LCD_DRIVER            -----    -----
+  +--> ?PR?_DELAY_MS?DELAY_DRIVER
+
+?PR?_DELAY_MS?DELAY_DRIVER                 000CH    0004H
+
+?PR?_LCD8_DATA?LM016L_LCD_DRIVER           -----    -----
+  +--> ?PR?_DELAY_MS?DELAY_DRIVER
+
+?PR?LCD8_INIT?LM016L_LCD_DRIVER            -----    -----
+  +--> ?PR?_LCD8_CMD?LM016L_LCD_DRIVER
+
+?PR?_LCD8_STRING?LM016L_LCD_DRIVER         0008H    0004H
+  +--> ?PR?_LCD8_CMD?LM016L_LCD_DRIVER
+  +--> ?PR?_LCD8_DATA?LM016L_LCD_DRIVER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\lcd (LCD8_MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LCD8_MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0910H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0910H         LINE#         2
+  C:0910H         LINE#         3
+  C:0910H         LINE#         4
+  C:0913H         LINE#         5
+  C:0916H         LINE#         6
+  C:091BH         LINE#         7
+  C:0920H         LINE#         8
+  C:0929H         LINE#         9
+  C:092EH         LINE#         11
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LCD8_MAIN
+
+  -------         MODULE        DELAY_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08C0H         PUBLIC        _delay_ms
+  -------         PROC          _DELAY_MS
+  D:000CH         SYMBOL        ms
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:08C0H         LINE#         3
+  C:08C8H         LINE#         4
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  21:04:53  PAGE 3
+
+
+  C:08C8H         LINE#         6
+  C:08D5H         LINE#         7
+  C:08D5H         LINE#         8
+  C:08D7H         LINE#         9
+  C:08DDH         LINE#         10
+  C:08DFH         LINE#         11
+  C:08E7H         LINE#         13
+  -------         ENDPROC       _DELAY_MS
+  -------         ENDMOD        DELAY_DRIVER
+
+  -------         MODULE        LM016L_LCD_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:095FH         PUBLIC        _lcd8_cmd
+  C:0930H         PUBLIC        lcd8_init
+  B:00A0H.2       PUBLIC        en
+  D:0080H         PUBLIC        lcd_port
+  B:00A0H.0       PUBLIC        rs
+  C:084DH         PUBLIC        _lcd8_string
+  B:00A0H.1       PUBLIC        rw
+  C:0949H         PUBLIC        _lcd8_data
+  -------         PROC          _LCD8_DATA
+  D:0007H         SYMBOL        Data
+  C:0949H         LINE#         7
+  C:0949H         LINE#         8
+  C:0949H         LINE#         9
+  C:094BH         LINE#         10
+  C:094DH         LINE#         11
+  C:094FH         LINE#         12
+  C:0951H         LINE#         13
+  C:095CH         LINE#         14
+  C:095EH         LINE#         15
+  -------         ENDPROC       _LCD8_DATA
+  -------         PROC          _LCD8_CMD
+  D:0007H         SYMBOL        cmd
+  C:095FH         LINE#         16
+  C:095FH         LINE#         17
+  C:095FH         LINE#         18
+  C:0961H         LINE#         19
+  C:0963H         LINE#         20
+  C:0965H         LINE#         21
+  C:0967H         LINE#         22
+  C:0972H         LINE#         23
+  C:0974H         LINE#         24
+  -------         ENDPROC       _LCD8_CMD
+  -------         PROC          LCD8_INIT
+  C:0930H         LINE#         26
+  C:0930H         LINE#         27
+  C:0930H         LINE#         28
+  C:0935H         LINE#         29
+  C:093AH         LINE#         30
+  C:093FH         LINE#         31
+  C:0944H         LINE#         32
+  -------         ENDPROC       LCD8_INIT
+  -------         PROC          _LCD8_STRING
+  D:0008H         SYMBOL        ptr
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  21:04:53  PAGE 4
+
+
+  D:000BH         SYMBOL        i
+  -------         ENDDO         
+  C:084DH         LINE#         35
+  C:0853H         LINE#         36
+  C:0853H         LINE#         38
+  C:086BH         LINE#         39
+  C:086BH         LINE#         40
+  C:086EH         LINE#         41
+  C:086EH         LINE#         42
+  C:0873H         LINE#         43
+  C:0875H         LINE#         44
+  C:0875H         LINE#         45
+  C:088CH         LINE#         46
+  C:0890H         LINE#         47
+  -------         ENDPROC       _LCD8_STRING
+  -------         ENDMOD        LM016L_LCD_DRIVER
+
+  -------         MODULE        CGRAM_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0891H         PUBLIC        cgram_init
+  C:08E8H         PUBLIC        cgram_tb
+  -------         PROC          CGRAM_INIT
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0891H         LINE#         10
+  C:0891H         LINE#         11
+  C:0891H         LINE#         13
+  C:0896H         LINE#         14
+  C:0899H         LINE#         15
+  C:08BBH         LINE#         16
+  -------         ENDPROC       CGRAM_INIT
+  -------         ENDMOD        CGRAM_DRIVER
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0800H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0836H         PUBLIC        ?C?LLDIIDATA
+  C:082DH         PUBLIC        ?C?LLDIIDATA1
+  C:082FH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0131H BYTE (14%) *
+******************************************************************************
+
+Program Size: data=17.0 xdata=0 code=397
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

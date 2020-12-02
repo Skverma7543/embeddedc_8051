@@ -1,4 +1,4 @@
-C51 COMPILER V9.50a   DELAY_DRIVER                                                         12/02/2020 14:32:30 PAGE 1   
+C51 COMPILER V9.50a   DELAY_DRIVER                                                         12/02/2020 20:56:13 PAGE 1   
 
 
 C51 COMPILER V9.50a, COMPILATION OF MODULE DELAY_DRIVER
@@ -21,7 +21,6 @@ line level    source
   11   2          while(i--);
   12   2        }
   13   1      }
-*** WARNING C316 IN LINE 13 OF delay_driver.c: unterminated conditionals
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -35,4 +34,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

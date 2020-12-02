@@ -1,0 +1,42 @@
+C51 COMPILER V9.50a   CGRAM_DRIVER                                                         12/02/2020 21:04:53 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE CGRAM_DRIVER
+OBJECT MODULE PLACED IN .\Objects\cgram_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE cgram_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\cgram_driver.lst) TABS(2) OBJECT(.\Objects\cgram_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          code u8 cgram_tb[40]={0x0E,0x1F,0x11,0x11,0x11,0x11,0x1F,0x00,
+   4                              0x0E,0x1F,0x11,0x11,0x11,0x1F,0x1F,0x00,
+   5                              0x0E,0x1F,0x11,0x11,0x1F,0x1F,0x1F,0x00,
+   6                              0x0E,0x1F,0x11,0x1F,0x1F,0x11,0x1F,0x00,
+   7                              0x0E,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x00};
+   8          
+   9                              
+  10          void cgram_init(void)
+  11          {
+  12   1        s8 i;
+  13   1        lcd8_cmd(0x40);
+  14   1        for(i=0;i<8;i++)
+  15   1        lcd8_data(cgram_tb[i]);
+  16   1        lcd8_cmd(0x80);
+  17   1        
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     47    ----
+   CONSTANT SIZE    =     40    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
