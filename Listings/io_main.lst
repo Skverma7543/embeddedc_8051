@@ -1,0 +1,44 @@
+C51 COMPILER V9.50a   IO_MAIN                                                              12/02/2020 14:45:10 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE IO_MAIN
+OBJECT MODULE PLACED IN .\Objects\io_main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE io_main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\i
+                    -o_main.lst) TABS(2) OBJECT(.\Objects\io_main.obj)
+
+line level    source
+
+   1          #include "header.h"
+   2          void main(void)
+   3          {
+   4   1        //io_clr(PORT1,PIN1);
+   5   1        //delay_ms(100);
+   6   1        //io_set(PORT1,PIN1);
+   7   1        //write_port(PORT1,0x1);
+   8   1        //s8 temp;
+   9   1        //write_port(PORT1,0x1);
+  10   1        //temp=io_read(PORT1,PIN1);
+  11   1      //  delay_ms(1);
+  12   1        while(1)
+  13   1        {
+  14   2          io_clr(PORT2,PIN0);
+  15   2          delay_ms(100);
+  16   2          io_set(PORT2,PIN0);
+  17   2          delay_ms(100);
+  18   2        }
+  19   1      }
+*** WARNING C316 IN LINE 19 OF io_main.c: unterminated conditionals
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     38    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

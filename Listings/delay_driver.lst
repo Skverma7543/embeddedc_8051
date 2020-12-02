@@ -1,0 +1,38 @@
+C51 COMPILER V9.50a   DELAY_DRIVER                                                         12/02/2020 14:32:30 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE DELAY_DRIVER
+OBJECT MODULE PLACED IN .\Objects\delay_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE delay_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\delay_driver.lst) TABS(2) OBJECT(.\Objects\delay_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          void delay_ms(u32 ms)
+   4          {
+   5   1        u8 i;
+   6   1        while(ms--)
+   7   1        {
+   8   2          i=250;
+   9   2          while(i--);
+  10   2          i=247;
+  11   2          while(i--);
+  12   2        }
+  13   1      }
+*** WARNING C316 IN LINE 13 OF delay_driver.c: unterminated conditionals
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     40    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

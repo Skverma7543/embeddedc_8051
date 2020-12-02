@@ -1,0 +1,167 @@
+C51 COMPILER V9.50a   IO_DRIVER                                                            12/02/2020 14:30:14 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE IO_DRIVER
+OBJECT MODULE PLACED IN .\Objects\io_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE io_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\io_driver.lst) TABS(2) OBJECT(.\Objects\io_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          s8 io_write(u8 port,u8 pin,u8 BIT)
+   4          {
+   5   1        if(port>3||port<0||pin>7||pin<0)
+   6   1          return -1;
+   7   1        switch(port)
+   8   1        {
+   9   2          case PORT0:
+  10   2            if(BIT==CLEAR)
+  11   2              P0&=~(1<<pin);
+  12   2            else
+  13   2              P0|=1<<pin;
+  14   2              
+  15   2            break;
+  16   2          case PORT1:
+  17   2            if(BIT==CLEAR)
+  18   2              P1&=~(1<<pin);
+  19   2            else
+  20   2              P1|=1<<pin;
+  21   2            break;
+  22   2          case PORT2:
+  23   2            if(BIT==CLEAR)
+  24   2              P2&=~(1<<pin);
+  25   2            else
+  26   2              P2|=1<<pin;
+  27   2            break;
+  28   2          case PORT3:
+  29   2            if(BIT==CLEAR)
+  30   2              P3&=~(1<<pin);
+  31   2            else
+  32   2              P3|=1<<pin;
+  33   2            break;
+  34   2        }
+  35   1        return 0;
+  36   1      }
+  37          
+  38          s8 io_read(u8 port,u8 pin)
+  39          {
+  40   1        s8 status;
+  41   1        if(port>3||port<0||pin>7||pin<0)
+  42   1          return -1;
+  43   1        switch(port)
+  44   1        {
+  45   2          case PORT0:
+  46   2            status=((P0>>pin)&1)?1:0;
+  47   2            break;
+  48   2          case PORT1:
+  49   2            status=((P1>>pin)&1)?1:0;
+  50   2            break;
+  51   2          case PORT2:
+  52   2            status=((P2>>pin)&1)?1:0;
+  53   2            break;
+  54   2          case PORT3:
+C51 COMPILER V9.50a   IO_DRIVER                                                            12/02/2020 14:30:14 PAGE 2   
+
+  55   2            status=((P3>>pin)&1)?1:0;
+  56   2            break;
+  57   2          
+  58   2        }
+  59   1        return status;
+  60   1      }
+  61          
+  62          s8 io_set(u8 port,u8 pin)
+  63          {
+  64   1        if(port>3||port<0||pin>7||pin<0)
+  65   1          return -1;
+  66   1        switch(port)
+  67   1        {
+  68   2          case PORT0:
+  69   2            P0|=1<<pin;
+  70   2            break;
+  71   2          case PORT1:
+  72   2            P1|=1<<pin;
+  73   2            break;
+  74   2          case PORT2:
+  75   2            P2|=1<<pin;
+  76   2            break;
+  77   2          case PORT3:
+  78   2            P3|=1<<pin;
+  79   2            break;
+  80   2        }
+  81   1        return 0;
+  82   1      }
+  83          s8 io_clr(u8 port,u8 pin)
+  84          {
+  85   1        if(port>4||port<0||pin>7||pin<0)
+  86   1          return -1;
+  87   1        switch(port)
+  88   1        {
+  89   2          case PORT0:
+  90   2            P0&=~(1<<pin);
+  91   2            break;
+  92   2          case PORT1:
+  93   2            P1&=~(1<<pin);
+  94   2            break;
+  95   2          case PORT2:
+  96   2            P2&=~(1<<pin);
+  97   2            break;
+  98   2          case PORT3:
+  99   2            P3&=~(1<<pin);
+ 100   2            break;
+ 101   2        }
+ 102   1        return 0;
+ 103   1      }
+ 104          
+ 105          s8 write_port(u8 port,u8 Data)
+ 106          {
+ 107   1        if(port>3||port<0)
+ 108   1          return -1;
+ 109   1        switch(port)
+ 110   1        {
+ 111   2          case PORT0:P0=Data;
+ 112   2            break;
+ 113   2          case PORT1:P1=Data;
+ 114   2            break;
+ 115   2          case PORT2:P2=Data;
+ 116   2            break;
+C51 COMPILER V9.50a   IO_DRIVER                                                            12/02/2020 14:30:14 PAGE 3   
+
+ 117   2          case PORT3:P3=Data;
+ 118   2            break;
+ 119   2          
+ 120   2        }
+ 121   1        return 0;
+ 122   1      }
+ 123          s8 read_port(u8 port)
+ 124          {
+ 125   1        s8 temp;
+ 126   1        switch(port)
+ 127   1        {
+ 128   2          case PORT0:temp=P0;
+ 129   2            break;
+ 130   2          case PORT1:temp=P1;
+ 131   2            break;
+ 132   2          case PORT2:temp=P2;
+ 133   2            break;
+ 134   2          case PORT3:temp=P3;
+ 135   2            break;
+ 136   2        }
+ 137   1        return temp;
+ 138   1      }
+*** WARNING C316 IN LINE 138 OF io_driver.c: unterminated conditionals
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    608    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

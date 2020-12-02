@@ -1,0 +1,5 @@
+".\Objects\io_main.obj",
+".\Objects\io_driver.obj",
+".\Objects\delay_driver.obj" 
+TO ".\Objects\led" 
+PRINT(".\Listings\led.m51")

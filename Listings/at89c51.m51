@@ -1,0 +1,312 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/02/2020  14:45:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\io_main.obj, .\Objects\io_driver.obj, .\Objects\delay_driver.obj TO .\Objects\at89
+>> c51 PRINT (.\Listings\at89c51.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\io_main.obj (IO_MAIN)
+  .\Objects\io_driver.obj (IO_DRIVER)
+  .\Objects\delay_driver.obj (DELAY_DRIVER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+
+
+LINK MAP OF MODULE:  .\Objects\at89c51 (IO_MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00B3H     UNIT         ?PR?_IO_WRITE?IO_DRIVER
+            CODE    08B3H     008CH     UNIT         ?PR?_IO_READ?IO_DRIVER
+            CODE    093FH     006CH     UNIT         ?PR?_IO_CLR?IO_DRIVER
+            CODE    09ABH     0068H     UNIT         ?PR?_IO_SET?IO_DRIVER
+            CODE    0A13H     002EH     UNIT         ?PR?_WRITE_PORT?IO_DRIVER
+            CODE    0A41H     0028H     UNIT         ?PR?_DELAY_MS?DELAY_DRIVER
+            CODE    0A69H     0026H     UNIT         ?PR?MAIN?IO_MAIN
+            CODE    0A8FH     0020H     UNIT         ?C?LIB_CODE
+            CODE    0AAFH     001FH     UNIT         ?PR?_READ_PORT?IO_DRIVER
+            CODE    0ACEH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\at89c51 (IO_MAIN)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?IO_MAIN
+
+?PR?MAIN?IO_MAIN                   -----    -----
+  +--> ?PR?_IO_CLR?IO_DRIVER
+  +--> ?PR?_DELAY_MS?DELAY_DRIVER
+  +--> ?PR?_IO_SET?IO_DRIVER
+
+?PR?_DELAY_MS?DELAY_DRIVER         0008H    0004H
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:11  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\at89c51 (IO_MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        IO_MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A69H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0A69H         LINE#         2
+  C:0A69H         LINE#         3
+  C:0A69H         LINE#         12
+  C:0A69H         LINE#         13
+  C:0A69H         LINE#         14
+  C:0A70H         LINE#         15
+  C:0A7BH         LINE#         16
+  C:0A82H         LINE#         17
+  C:0A8DH         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        IO_MAIN
+
+  -------         MODULE        IO_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:09ABH         PUBLIC        _io_set
+  C:0AAFH         PUBLIC        _read_port
+  C:0A13H         PUBLIC        _write_port
+  C:08B3H         PUBLIC        _io_read
+  C:0800H         PUBLIC        _io_write
+  C:093FH         PUBLIC        _io_clr
+  -------         PROC          _IO_WRITE
+  D:0007H         SYMBOL        port
+  D:0005H         SYMBOL        pin
+  D:0003H         SYMBOL        BIT
+  C:0800H         LINE#         3
+  C:0800H         LINE#         4
+  C:0800H         LINE#         5
+  C:0818H         LINE#         6
+  C:081BH         LINE#         7
+  C:082CH         LINE#         8
+  C:082CH         LINE#         9
+  C:082CH         LINE#         10
+  C:082FH         LINE#         11
+  C:083EH         LINE#         13
+  C:084BH         LINE#         15
+  C:084DH         LINE#         16
+  C:084DH         LINE#         17
+  C:0850H         LINE#         18
+  C:085FH         LINE#         20
+  C:086CH         LINE#         21
+  C:086EH         LINE#         22
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:11  PAGE 3
+
+
+  C:086EH         LINE#         23
+  C:0871H         LINE#         24
+  C:0880H         LINE#         26
+  C:088DH         LINE#         27
+  C:088FH         LINE#         28
+  C:088FH         LINE#         29
+  C:0892H         LINE#         30
+  C:08A1H         LINE#         32
+  C:08B0H         LINE#         33
+  C:08B0H         LINE#         34
+  C:08B0H         LINE#         35
+  C:08B2H         LINE#         36
+  -------         ENDPROC       _IO_WRITE
+  -------         PROC          _IO_READ
+  D:0007H         SYMBOL        port
+  D:0005H         SYMBOL        pin
+  -------         DO            
+  D:0006H         SYMBOL        status
+  -------         ENDDO         
+  C:08B3H         LINE#         38
+  C:08B3H         LINE#         39
+  C:08B3H         LINE#         41
+  C:08CBH         LINE#         42
+  C:08CEH         LINE#         43
+  C:08DCH         LINE#         44
+  C:08DCH         LINE#         45
+  C:08DCH         LINE#         46
+  C:08F2H         LINE#         47
+  C:08F4H         LINE#         48
+  C:08F4H         LINE#         49
+  C:090AH         LINE#         50
+  C:090CH         LINE#         51
+  C:090CH         LINE#         52
+  C:0922H         LINE#         53
+  C:0924H         LINE#         54
+  C:0924H         LINE#         55
+  C:093CH         LINE#         56
+  C:093CH         LINE#         58
+  C:093CH         LINE#         59
+  C:093EH         LINE#         60
+  -------         ENDPROC       _IO_READ
+  -------         PROC          _IO_SET
+  D:0007H         SYMBOL        port
+  D:0005H         SYMBOL        pin
+  C:09ABH         LINE#         62
+  C:09ABH         LINE#         63
+  C:09ABH         LINE#         64
+  C:09C3H         LINE#         65
+  C:09C6H         LINE#         66
+  C:09D4H         LINE#         67
+  C:09D4H         LINE#         68
+  C:09D4H         LINE#         69
+  C:09E1H         LINE#         70
+  C:09E3H         LINE#         71
+  C:09E3H         LINE#         72
+  C:09F0H         LINE#         73
+  C:09F2H         LINE#         74
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:11  PAGE 4
+
+
+  C:09F2H         LINE#         75
+  C:09FFH         LINE#         76
+  C:0A01H         LINE#         77
+  C:0A01H         LINE#         78
+  C:0A10H         LINE#         79
+  C:0A10H         LINE#         80
+  C:0A10H         LINE#         81
+  C:0A12H         LINE#         82
+  -------         ENDPROC       _IO_SET
+  -------         PROC          _IO_CLR
+  D:0007H         SYMBOL        port
+  D:0005H         SYMBOL        pin
+  C:093FH         LINE#         83
+  C:093FH         LINE#         84
+  C:093FH         LINE#         85
+  C:0957H         LINE#         86
+  C:095AH         LINE#         87
+  C:0968H         LINE#         88
+  C:0968H         LINE#         89
+  C:0968H         LINE#         90
+  C:0976H         LINE#         91
+  C:0978H         LINE#         92
+  C:0978H         LINE#         93
+  C:0986H         LINE#         94
+  C:0988H         LINE#         95
+  C:0988H         LINE#         96
+  C:0996H         LINE#         97
+  C:0998H         LINE#         98
+  C:0998H         LINE#         99
+  C:09A8H         LINE#         100
+  C:09A8H         LINE#         101
+  C:09A8H         LINE#         102
+  C:09AAH         LINE#         103
+  -------         ENDPROC       _IO_CLR
+  -------         PROC          _WRITE_PORT
+  D:0007H         SYMBOL        port
+  D:0005H         SYMBOL        Data
+  C:0A13H         LINE#         105
+  C:0A13H         LINE#         106
+  C:0A13H         LINE#         107
+  C:0A1FH         LINE#         108
+  C:0A22H         LINE#         109
+  C:0A30H         LINE#         110
+  C:0A30H         LINE#         111
+  C:0A32H         LINE#         112
+  C:0A34H         LINE#         113
+  C:0A36H         LINE#         114
+  C:0A38H         LINE#         115
+  C:0A3AH         LINE#         116
+  C:0A3CH         LINE#         117
+  C:0A3EH         LINE#         118
+  C:0A3EH         LINE#         120
+  C:0A3EH         LINE#         121
+  C:0A40H         LINE#         122
+  -------         ENDPROC       _WRITE_PORT
+  -------         PROC          _READ_PORT
+  D:0007H         SYMBOL        port
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:11  PAGE 5
+
+
+  -------         DO            
+  D:0006H         SYMBOL        temp
+  -------         ENDDO         
+  C:0AAFH         LINE#         123
+  C:0AAFH         LINE#         124
+  C:0AAFH         LINE#         126
+  C:0ABDH         LINE#         127
+  C:0ABDH         LINE#         128
+  C:0ABFH         LINE#         129
+  C:0AC1H         LINE#         130
+  C:0AC3H         LINE#         131
+  C:0AC5H         LINE#         132
+  C:0AC7H         LINE#         133
+  C:0AC9H         LINE#         134
+  C:0ACBH         LINE#         135
+  C:0ACBH         LINE#         136
+  C:0ACBH         LINE#         137
+  C:0ACDH         LINE#         138
+  -------         ENDPROC       _READ_PORT
+  -------         ENDMOD        IO_DRIVER
+
+  -------         MODULE        DELAY_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A41H         PUBLIC        _delay_ms
+  -------         PROC          _DELAY_MS
+  D:0008H         SYMBOL        ms
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0A41H         LINE#         3
+  C:0A49H         LINE#         4
+  C:0A49H         LINE#         6
+  C:0A56H         LINE#         7
+  C:0A56H         LINE#         8
+  C:0A58H         LINE#         9
+  C:0A5EH         LINE#         10
+  C:0A60H         LINE#         11
+  C:0A68H         LINE#         13
+  -------         ENDPROC       _DELAY_MS
+  -------         ENDMOD        DELAY_DRIVER
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0A98H         PUBLIC        ?C?LLDIIDATA
+  C:0A8FH         PUBLIC        ?C?LLDIIDATA1
+  C:0A91H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IO_WRITE?IO_DRIVER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_IO_READ?IO_DRIVER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WRITE_PORT?IO_DRIVER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/02/2020  14:45:11  PAGE 6
+
+
+    SEGMENT: ?PR?_READ_PORT?IO_DRIVER
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02AEH BYTE (33%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=733
+LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)
