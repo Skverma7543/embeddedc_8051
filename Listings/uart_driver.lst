@@ -1,0 +1,66 @@
+C51 COMPILER V9.50a   UART_DRIVER                                                          12/03/2020 20:22:25 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE UART_DRIVER
+OBJECT MODULE PLACED IN .\Objects\uart_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE uart_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\uart_driver.lst) TABS(2) OBJECT(.\Objects\uart_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          
+   4          
+   5          void uart_init(u32 baud)
+   6          {
+   7   1        SCON=0x50; //mode1 and recieve enable
+   8   1        TMOD|=0x20; //timer 1 mode 2 selected
+   9   1        switch(baud)
+  10   1        {
+  11   2          case 7200:TH1=252;break;
+  12   2          case 9600:TH1=253;break;
+  13   2          case 14400:TH1=254;break;
+  14   2          case 28800:TH1=255;break;
+  15   2          case 57600:PCON|=0x80;
+  16   2                     TH1=255;break;
+  17   2        }
+  18   1        TR1=1;
+  19   1        EA=ES=1; //enabling uart interrupt
+  20   1      }
+  21          u8 uart_rx(void)
+  22          {
+  23   1        u8 temp;
+  24   1        while(RI==0);
+  25   1        RI=0;
+  26   1        temp=SBUF;
+  27   1        return temp;
+  28   1      }
+  29          void uart_tx(u8 Data)
+  30          {
+  31   1        SBUF=Data;
+  32   1        while(TI==0);
+  33   1        TI=0;
+  34   1      }
+  35          void uart_tx_string(u8 *ptr)
+  36          {
+  37   1        s8 i;
+  38   1        for(i=0;ptr[i];i++)
+  39   1        {
+  40   2          uart_tx(ptr[i]);
+  41   2        }
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    125    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

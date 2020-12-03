@@ -1,0 +1,251 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/03/2020  20:27:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\uart_main.obj, .\Objects\uart_driver.obj, .\Objects\uart_interrupt_driver.obj, .\O
+>> bjects\Ex_interrupt_driver.obj TO .\Objects\uart PRINT (.\Listings\uart.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\uart_main.obj (UART_MAIN)
+  .\Objects\uart_driver.obj (UART_DRIVER)
+  .\Objects\uart_interrupt_driver.obj (UART_INTERRUPT_DRIVER)
+  .\Objects\Ex_interrupt_driver.obj (EX_INTERRUPT_DRIVER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LCASE)
+
+
+LINK MAP OF MODULE:  .\Objects\uart (UART_MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?_UART_TX_STRING?UART_DRIVER
+            DATA    000BH     0001H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     000DH                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+                    0016H     000DH                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     0067H     UNIT         ?C?LIB_CODE
+            CODE    0867H     0049H     UNIT         ?PR?_UART_INIT?UART_DRIVER
+            CODE    08B0H     0024H     UNIT         ?PR?_UART_TX_STRING?UART_DRIVER
+            CODE    08D4H     001AH     UNIT         ?PR?UART_HANDLER?UART_INTERRUPT_DRIVER
+            CODE    08EEH     0010H     UNIT         ?PR?MAIN?UART_MAIN
+            CODE    08FEH     000CH     UNIT         ?C_C51STARTUP
+            CODE    090AH     000BH     UNIT         ?PR?ENABLE_EX_INTERRUPT?EX_INTERRUPT_DRIVER
+            CODE    0915H     0008H     UNIT         ?PR?UART_RX?UART_DRIVER
+            CODE    091DH     0008H     UNIT         ?PR?_UART_TX?UART_DRIVER
+            CODE    0925H     0003H     UNIT         ?PR?EX0_ISR?EX_INTERRUPT_DRIVER
+            CODE    0928H     0003H     UNIT         ?PR?EX1_ISR?EX_INTERRUPT_DRIVER
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\uart (UART_MAIN)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2020  20:27:24  PAGE 2
+
+
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?UART_MAIN
+
+?PR?MAIN?UART_MAIN                               000BH    0001H
+  +--> ?PR?ENABLE_EX_INTERRUPT?EX_INTERRUPT_...
+  +--> ?PR?_UART_INIT?UART_DRIVER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\uart (UART_MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        UART_MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08EEH         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:000BH         SYMBOL        temp
+  -------         ENDDO         
+  C:08EEH         LINE#         3
+  C:08EEH         LINE#         4
+  C:08EEH         LINE#         7
+  C:08F1H         LINE#         8
+  C:08FCH         LINE#         9
+  C:08FCH         LINE#         10
+  C:08FCH         LINE#         14
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        UART_MAIN
+
+  -------         MODULE        UART_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:08B0H         PUBLIC        _uart_tx_string
+  C:0915H         PUBLIC        uart_rx
+  C:091DH         PUBLIC        _uart_tx
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  C:0867H         PUBLIC        _uart_init
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _UART_INIT
+  D:0004H         SYMBOL        baud
+  C:0867H         LINE#         5
+  C:0867H         LINE#         6
+  C:0867H         LINE#         7
+  C:086AH         LINE#         8
+  C:086DH         LINE#         9
+  C:0892H         LINE#         10
+  C:0892H         LINE#         11
+  C:0897H         LINE#         12
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2020  20:27:24  PAGE 3
+
+
+  C:089CH         LINE#         13
+  C:08A1H         LINE#         14
+  C:08A3H         LINE#         15
+  C:08A6H         LINE#         16
+  C:08A9H         LINE#         17
+  C:08A9H         LINE#         18
+  C:08ABH         LINE#         19
+  C:08AFH         LINE#         20
+  -------         ENDPROC       _UART_INIT
+  -------         PROC          UART_RX
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  -------         ENDDO         
+  C:0915H         LINE#         21
+  C:0915H         LINE#         22
+  C:0915H         LINE#         24
+  C:0918H         LINE#         25
+  C:091AH         LINE#         26
+  C:091CH         LINE#         27
+  C:091CH         LINE#         28
+  -------         ENDPROC       UART_RX
+  -------         PROC          _UART_TX
+  D:0007H         SYMBOL        Data
+  C:091DH         LINE#         29
+  C:091DH         LINE#         30
+  C:091DH         LINE#         31
+  C:091FH         LINE#         32
+  C:0922H         LINE#         33
+  C:0924H         LINE#         34
+  -------         ENDPROC       _UART_TX
+  -------         PROC          _UART_TX_STRING
+  D:0008H         SYMBOL        ptr
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:08B0H         LINE#         35
+  C:08B6H         LINE#         36
+  C:08B6H         LINE#         38
+  C:08CDH         LINE#         39
+  C:08CDH         LINE#         40
+  C:08D0H         LINE#         41
+  C:08D3H         LINE#         42
+  -------         ENDPROC       _UART_TX_STRING
+  -------         ENDMOD        UART_DRIVER
+
+  -------         MODULE        UART_INTERRUPT_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08D4H         PUBLIC        uart_handler
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  -------         PROC          UART_HANDLER
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  -------         ENDDO         
+  C:08D4H         LINE#         2
+  C:08DBH         LINE#         5
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2020  20:27:24  PAGE 4
+
+
+  C:08DEH         LINE#         6
+  C:08DEH         LINE#         7
+  C:08E0H         LINE#         8
+  C:08E2H         LINE#         9
+  C:08E4H         LINE#         11
+  C:08E4H         LINE#         12
+  C:08E7H         LINE#         13
+  C:08E9H         LINE#         14
+  -------         ENDPROC       UART_HANDLER
+  -------         ENDMOD        UART_INTERRUPT_DRIVER
+
+  -------         MODULE        EX_INTERRUPT_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:0925H         PUBLIC        ex0_isr
+  C:0928H         PUBLIC        ex1_isr
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  B:00A0H.0       PUBLIC        led1
+  B:00A0H.1       PUBLIC        led2
+  C:090AH         PUBLIC        enable_ex_interrupt
+  -------         PROC          EX0_ISR
+  C:0925H         LINE#         7
+  C:0925H         LINE#         9
+  C:0927H         LINE#         10
+  -------         ENDPROC       EX0_ISR
+  -------         PROC          EX1_ISR
+  C:0928H         LINE#         11
+  C:0928H         LINE#         13
+  C:092AH         LINE#         14
+  -------         ENDPROC       EX1_ISR
+  -------         PROC          ENABLE_EX_INTERRUPT
+  C:090AH         LINE#         15
+  C:090AH         LINE#         16
+  C:090AH         LINE#         17
+  C:0910H         LINE#         18
+  C:0914H         LINE#         20
+  -------         ENDPROC       ENABLE_EX_INTERRUPT
+  -------         ENDMOD        EX_INTERRUPT_DRIVER
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0800H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LCASE
+  C:082DH         PUBLIC        ?C?LCASE
+  -------         ENDMOD        ?C?LCASE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RX?UART_DRIVER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART_TX_STRING?UART_DRIVER
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2020  20:27:24  PAGE 5
+
+
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00C1H BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=311
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

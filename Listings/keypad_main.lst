@@ -1,0 +1,37 @@
+C51 COMPILER V9.50a   KEYPAD_MAIN                                                          12/02/2020 22:43:54 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE KEYPAD_MAIN
+OBJECT MODULE PLACED IN .\Objects\keypad_main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE keypad_main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\keypad_main.lst) TABS(2) OBJECT(.\Objects\keypad_main.obj)
+
+line level    source
+
+   1          #include "header.h"
+   2          void main(void)
+   3          {
+   4   1        u8 temp;
+   5   1        lcd4_init();
+   6   1        lcd4_data('A');
+   7   1        while(1)
+   8   1        {
+   9   2          temp=keyscan_phone();
+  10   2          lcd4_data(temp);
+  11   2          delay_ms(100);
+  12   2        }
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     29    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,150 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/03/2020  19:15:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\uart_main.obj, .\Objects\uart_driver.obj TO .\Objects\keypad PRINT (.\Listings\key
+>> pad.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\uart_main.obj (UART_MAIN)
+  .\Objects\uart_driver.obj (UART_DRIVER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LCASE)
+
+
+LINK MAP OF MODULE:  .\Objects\keypad (UART_MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0045H     UNIT         ?PR?_UART_INIT?UART_DRIVER
+            CODE    0845H     003AH     UNIT         ?C?LIB_CODE
+            CODE    087FH     0015H     UNIT         ?PR?MAIN?UART_MAIN
+            CODE    0894H     000CH     UNIT         ?C_C51STARTUP
+            CODE    08A0H     0008H     UNIT         ?PR?UART_RX?UART_DRIVER
+            CODE    08A8H     0008H     UNIT         ?PR?_UART_TX?UART_DRIVER
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\keypad (UART_MAIN)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?UART_MAIN
+
+?PR?MAIN?UART_MAIN                 0008H    0001H
+  +--> ?PR?_UART_INIT?UART_DRIVER
+  +--> ?PR?UART_RX?UART_DRIVER
+  +--> ?PR?_UART_TX?UART_DRIVER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\keypad (UART_MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2020  19:15:08  PAGE 2
+
+
+
+  -------         MODULE        UART_MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:087FH         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        temp
+  -------         ENDDO         
+  C:087FH         LINE#         2
+  C:087FH         LINE#         3
+  C:087FH         LINE#         5
+  C:088AH         LINE#         6
+  C:088AH         LINE#         7
+  C:088AH         LINE#         8
+  C:088FH         LINE#         9
+  C:0892H         LINE#         10
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        UART_MAIN
+
+  -------         MODULE        UART_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08A0H         PUBLIC        uart_rx
+  C:08A8H         PUBLIC        _uart_tx
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  C:0800H         PUBLIC        _uart_init
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          _UART_INIT
+  D:0004H         SYMBOL        baud
+  C:0800H         LINE#         3
+  C:0800H         LINE#         4
+  C:0800H         LINE#         5
+  C:0803H         LINE#         6
+  C:0806H         LINE#         7
+  C:082BH         LINE#         8
+  C:082BH         LINE#         9
+  C:0830H         LINE#         10
+  C:0835H         LINE#         11
+  C:083AH         LINE#         12
+  C:083CH         LINE#         13
+  C:083FH         LINE#         14
+  C:0842H         LINE#         15
+  C:0842H         LINE#         16
+  C:0844H         LINE#         17
+  -------         ENDPROC       _UART_INIT
+  -------         PROC          UART_RX
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  -------         ENDDO         
+  C:08A0H         LINE#         18
+  C:08A0H         LINE#         19
+  C:08A0H         LINE#         21
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2020  19:15:08  PAGE 3
+
+
+  C:08A3H         LINE#         22
+  C:08A5H         LINE#         23
+  C:08A7H         LINE#         24
+  C:08A7H         LINE#         25
+  -------         ENDPROC       UART_RX
+  -------         PROC          _UART_TX
+  D:0007H         SYMBOL        Data
+  C:08A8H         LINE#         26
+  C:08A8H         LINE#         27
+  C:08A8H         LINE#         28
+  C:08AAH         LINE#         29
+  C:08ADH         LINE#         30
+  C:08AFH         LINE#         31
+  -------         ENDPROC       _UART_TX
+  -------         ENDMOD        UART_DRIVER
+
+  -------         MODULE        ?C?LCASE
+  C:0845H         PUBLIC        ?C?LCASE
+  -------         ENDMOD        ?C?LCASE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 006AH BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=179
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

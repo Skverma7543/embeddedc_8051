@@ -1,0 +1,1 @@
+"uart_interrupt_driver.c" OPTIMIZE (8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\uart_interrupt_driver.lst) TABS (2) OBJECT(.\Objects\uart_interrupt_driver.obj)

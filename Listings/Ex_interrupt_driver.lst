@@ -1,0 +1,44 @@
+C51 COMPILER V9.50a   EX_INTERRUPT_DRIVER                                                  12/03/2020 20:27:24 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE EX_INTERRUPT_DRIVER
+OBJECT MODULE PLACED IN .\Objects\Ex_interrupt_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Ex_interrupt_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(
+                    -.\Listings\Ex_interrupt_driver.lst) TABS(2) OBJECT(.\Objects\Ex_interrupt_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          sbit led1=P2^0;
+   4          sbit led2=P2^1;
+   5          sbit sw1=P3^2;  //int0
+   6          sbit sw2=P3^3;  //int1
+   7          void ex0_isr(void) interrupt 0
+   8          {
+   9   1        led1=~led1;
+  10   1      }
+  11          void ex1_isr(void) interrupt 2
+  12          {
+  13   1        led2=~led2;
+  14   1      }
+  15          void enable_ex_interrupt(void)
+  16          {
+  17   1        EA=EX0=EX1=1; //enable exernal interupt
+  18   1        IT0=IT1=1;  //for edge triger
+  19   1        
+  20   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

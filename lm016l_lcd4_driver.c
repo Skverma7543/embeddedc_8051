@@ -1,9 +1,9 @@
 #include<reg51.h>
 #include "header.h"
-sfr lcd_port=0xA0;
-sbit rs=P2^0;
-sbit rw=P2^1;
-sbit en=P2^2;
+sfr lcd_port=0x80;
+sbit rs=P0^0;
+sbit rw=P0^1;
+sbit en=P0^2;
 
 void lcd4_data(u8 Data)
 {

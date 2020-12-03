@@ -54,7 +54,9 @@ s8 write_port(u8,u8);
 s8 read_port(u8);
 
 /***************delay functions prototype***/
+void sdelay_ms(u32);
 void delay_ms(u32);
+void delay_1ms(void);
 
 
 /**************lcd lm016l driver prototype******/
@@ -68,6 +70,20 @@ void lcd4_cmd(u8);
 void lcd4_string(u8 *);
 void cgram_init(void);
 
+/*************keypad*******************/
+u8 keyscan_cal(void);
+u8 keyscan_phone(void);
 
+/***********uart driver ***************/
+void uart_init(u32);
+u8 uart_rx(void);
+void uart_tx(u8);
+void uart_tx_string(u8 *);
+
+/***************interrupt*******************/
+void enable_ex0_interrupt();
+void enable_ex1_interrupt();
+void enable_timer0_interrupt();
+void enable_timer1_interrupt();
 
 #endif

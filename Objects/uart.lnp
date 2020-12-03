@@ -1,0 +1,6 @@
+".\Objects\uart_main.obj",
+".\Objects\uart_driver.obj",
+".\Objects\uart_interrupt_driver.obj",
+".\Objects\Ex_interrupt_driver.obj" 
+TO ".\Objects\uart" 
+PRINT(".\Listings\uart.m51")
