@@ -1,0 +1,238 @@
+C51 COMPILER V9.50a   HOME_AUTOMATION_DRIVERS                                              01/26/2021 02:07:57 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE HOME_AUTOMATION_DRIVERS
+OBJECT MODULE PLACED IN .\Objects\home_automation_drivers.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE home_automation_drivers.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\home_automation_drivers.lst) TABS(2) OBJECT(.\Objects\home_automation_drivers.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          sbit l1=P2^0;
+   4          sbit l2=P2^1;
+   5          sbit l3=P2^2;
+   6          sbit l4=P2^3;
+   7          sbit l5=P2^4;
+   8          sbit l6=P2^5;
+   9          sbit l7=P2^6;
+  10          sbit l8=P2^7;
+  11          sbit s1=P1^0;
+  12          sbit s2=P1^1;
+  13          sbit sw1=P3^2;  //int0
+  14          sbit sw2=P3^3;  //int1
+  15          char temp;   //data register
+  16          /********************menu**************************************/
+  17          u8 *mm="\r\nmenu\r\na.floor0\r\nb.floor1\r\nc.floor2\r\nd.floor3\r\n";
+  18          u8 *fm0="\r\nfloor0\r\n1.load1\r\n2.load2\r\n";
+  19          u8 *fm1="\r\nfloor1\r\n1.load1\r\n2.load2\r\n";
+  20          u8 *fm2="\r\nfloor2\r\n1.load1\r\n2.load2\r\n";
+  21          u8 *fm3="\r\nfloor3\r\n1.load1\r\n2.load2\r\n";
+  22          void uart_handler(void) interrupt 4
+  23          {
+  24   1        if(RI==1)
+  25   1        {
+  26   2          RI=0;
+  27   2          temp=SBUF;
+  28   2          sw1=0;
+  29   2           
+  30   2        }
+  31   1        if(TI==1)
+  32   1          TI=0;
+  33   1      }
+  34          //**********************interupt defination***********************//
+  35          void ex0_isr(void) interrupt 0
+  36          {
+  37   1        sw1=1;
+  38   1        fun();     //led will toggle after each intterrupt
+  39   1      }
+  40          
+  41          /*void ex1_isr(void) interrupt 2
+  42          {
+  43            led2=~led2;   //led will toggle after each intterpt
+  44          }*/
+  45          
+  46          
+  47          //*************************************************************/
+  48          void enable_ex_interrupt(void)
+  49          {
+  50   1        EA=EX0=1; //enable ex0 and ex1 interupt
+  51   1        IT0=1;  //for edge triger
+  52   1        s1=s2=0;
+  53   1        
+  54   1      }
+C51 COMPILER V9.50a   HOME_AUTOMATION_DRIVERS                                              01/26/2021 02:07:57 PAGE 2   
+
+  55          
+  56          /***************************************************************/
+  57          void uart_init(u32 baud)
+  58          {
+  59   1        SCON=0x50; //mode1 and recieve enable sm0 sm1 x REN x x TI RI 
+  60   1        TMOD|=0x20; //timer 1 mode 2 selected G1 C/T M1 M0 G0 C0/T0 M1 M0
+  61   1        switch(baud)
+  62   1        {
+  63   2          case 7200:TH1=252;break;
+  64   2          case 9600:TH1=253;break;
+  65   2          case 14400:TH1=254;break;
+  66   2          case 28800:TH1=255;break;
+  67   2          case 57600:PCON|=0x80;
+  68   2                     TH1=255;break;
+  69   2        }
+  70   1        TR1=1;
+  71   1        EA=ES=1; //enabling uart interrupt
+  72   1      }
+  73          void uart_tx(u8 Data)
+  74          {
+  75   1        SBUF=Data;
+  76   1        while(TI==0);
+  77   1        TI=0;
+  78   1      }
+  79          void uart_tx_string(u8 *ptr)
+  80          {
+  81   1        s8 i;
+  82   1        for(i=0;ptr[i];i++)
+  83   1        {
+  84   2          uart_tx(ptr[i]);
+  85   2        }
+  86   1      }
+  87          
+  88          //*****************************functions******************************************//
+  89          void fun()
+  90          {
+  91   1        
+  92   1        switch(temp)
+  93   1        {
+  94   2          case 'a':
+  95   2                floor_menu0();
+  96   2                break;
+  97   2          case 'b':
+  98   2                    floor_menu1();
+  99   2                  break;
+ 100   2          case 'c':
+ 101   2                    floor_menu2();
+ 102   2                    break;
+ 103   2          case 'd':
+ 104   2                    floor_menu3();
+ 105   2                    break;
+ 106   2          case 'm':
+ 107   2                    main_menu();
+ 108   2          default:
+ 109   2                   if(s1==0&&s2==0)
+ 110   2                   load(temp);
+ 111   2                   break;
+ 112   2        }
+ 113   1        uart_tx(temp);
+ 114   1      }
+ 115          void floor_menu0()
+ 116          {
+C51 COMPILER V9.50a   HOME_AUTOMATION_DRIVERS                                              01/26/2021 02:07:57 PAGE 3   
+
+ 117   1        s1=s2=0;
+ 118   1        uart_tx_string(fm0);
+ 119   1      }
+ 120          void floor_menu1()
+ 121          {
+ 122   1        s1=s2=0;
+ 123   1        uart_tx_string(fm1);
+ 124   1        s1=0;
+ 125   1        s2=1;
+ 126   1      }
+ 127          void floor_menu2()
+ 128          {
+ 129   1        s1=s2=0;
+ 130   1        uart_tx_string(fm2);
+ 131   1        s1=1;
+ 132   1        s2=0;
+ 133   1      }
+ 134          void floor_menu3()
+ 135          {
+ 136   1        s1=s2=0;
+ 137   1        uart_tx_string(fm3);
+ 138   1        s1=1;
+ 139   1        s2=1;
+ 140   1      }
+ 141          void main_menu()
+ 142          {
+ 143   1        s1=s2=0;
+ 144   1        uart_tx_string(mm);
+ 145   1      }
+ 146          void load(u8 t)
+ 147          {
+ 148   1        switch(temp)
+ 149   1        {
+ 150   2          case '1':load1();
+ 151   2                break;
+ 152   2          case '2':load2();
+ 153   2               break;
+ 154   2          case '3':load3();
+ 155   2                break;
+ 156   2          case '4':load4();
+ 157   2               break;
+ 158   2          case '5':load5();
+ 159   2                break;
+ 160   2          case '6':load6();
+ 161   2               break;
+ 162   2          case '7':load7();
+ 163   2                break;
+ 164   2          case '8':load8();
+ 165   2               break;
+ 166   2          default:
+ 167   2            break;
+ 168   2        }
+ 169   1      }
+*** WARNING C280 IN LINE 146 OF home_automation_drivers.c: 't': unreferenced local variable
+ 170          
+ 171          void load1()
+ 172          {
+ 173   1        l1=~l2;
+ 174   1      }
+ 175          
+ 176          void load2()
+ 177          {
+C51 COMPILER V9.50a   HOME_AUTOMATION_DRIVERS                                              01/26/2021 02:07:57 PAGE 4   
+
+ 178   1        l2=~l2;
+ 179   1      }
+ 180          
+ 181          void load3()
+ 182          {
+ 183   1        l3=~l3;
+ 184   1      }
+ 185          
+ 186          void load4()
+ 187          {
+ 188   1        l4=~l4;
+ 189   1      }
+ 190          
+ 191          void load5()
+ 192          {
+ 193   1        l5=~l5;
+ 194   1      }
+ 195          void load6()
+ 196          {
+ 197   1        l6=~l6;
+ 198   1      }
+ 199          
+ 200          void load7()
+ 201          {
+ 202   1        l7=~l7;
+ 203   1      }
+ 204          void load8()
+ 205          {
+ 206   1        l8=~l8;
+ 207   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    445    ----
+   CONSTANT SIZE    =    165    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

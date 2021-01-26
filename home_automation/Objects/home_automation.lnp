@@ -1,0 +1,5 @@
+".\Objects\delay_driver.obj",
+".\Objects\uc1main.obj",
+".\Objects\uc1driver.obj" 
+TO ".\Objects\home_automation" 
+PRINT(".\Listings\home_automation.m51")

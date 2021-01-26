@@ -1,0 +1,86 @@
+C51 COMPILER V9.50a   LM016L_LCD4_DRIVER                                                   01/25/2021 15:18:14 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE LM016L_LCD4_DRIVER
+OBJECT MODULE PLACED IN .\Objects\lm016l_lcd4_driver.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\lm016l_lcd4_driver.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRIN
+                    -T(.\Listings\lm016l_lcd4_driver.lst) TABS(2) OBJECT(.\Objects\lm016l_lcd4_driver.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include "header.h"
+   3          sfr lcd_port=0x80;
+   4          sbit rs=P0^0;
+   5          sbit rw=P0^1;
+   6          sbit en=P0^2;
+   7          
+   8          void lcd4_data(u8 Data)
+   9          {
+  10   1        lcd_port=Data&0xf0; 
+  11   1        rs=1;     //data mode
+  12   1        rw=0;     //command mode
+  13   1        en=1;     // enable lcd for reading writing
+  14   1        delay_ms(2);  //delay is must becouse lcd take 1.5 ms to read data bus
+  15   1        en=0;        //disable read write
+  16   1        lcd_port=(Data<<4)&0xf0; 
+  17   1        rs=1;     //data mode
+  18   1        rw=0;     //command mode
+  19   1        en=1;     // enable lcd for reading writing
+  20   1        delay_ms(2);  //delay is must becouse lcd take 1.5 ms to read data bus
+  21   1        en=0;        //disable read write
+  22   1      }
+  23          void lcd4_cmd(u8 cmd)
+  24          {
+  25   1        lcd_port=cmd&0xf0;
+  26   1        rs=0; //command mode
+  27   1        rw=0; //write mode
+  28   1        en=1;
+  29   1        delay_ms(2);
+  30   1        en=0;
+  31   1        lcd_port=(cmd<<4)&0xf0;
+  32   1        rs=0; //command mode
+  33   1        rw=0; //write mode
+  34   1        en=1;
+  35   1        delay_ms(2);
+  36   1        en=0;
+  37   1      }
+  38          
+  39          void lcd4_init(void)
+  40          {
+  41   1        lcd4_cmd(0x1);
+  42   1        lcd4_cmd(0x2);   //clear and home
+  43   1        lcd4_cmd(0x28); // 4bit mode
+  44   1        lcd4_cmd(0xC); //cursor off and increament address pointer
+  45   1        lcd4_cmd(0x80); //starting position of lcd
+  46   1      }
+  47          
+  48          void lcd4_string(u8 *ptr)
+  49          {
+  50   1        s8 i;
+  51   1        for(i=0;ptr[i];i++)
+  52   1        {
+  53   2          if(ptr[i]=='\n')
+  54   2          {
+C51 COMPILER V9.50a   LM016L_LCD4_DRIVER                                                   01/25/2021 15:18:14 PAGE 2   
+
+  55   3            lcd4_cmd(0xC0);
+  56   3            continue;
+  57   3          }
+  58   2          lcd4_data(ptr[i]);
+  59   2        }
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    201    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

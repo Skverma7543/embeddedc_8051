@@ -1,0 +1,524 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/26/2021  02:07:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\delay_driver.obj, .\Objects\home_automation_drivers.obj, .\Objects\home_automation
+>> _main.obj TO .\Objects\main_uc PRINT (.\Listings\main_uc.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\delay_driver.obj (DELAY_DRIVER)
+  .\Objects\home_automation_drivers.obj (HOME_AUTOMATION_DRIVERS)
+  .\Objects\home_automation_main.obj (HOME_AUTOMATION_MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\main_uc (DELAY_DRIVER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0010H     UNIT         ?DT?HOME_AUTOMATION_DRIVERS
+            DATA    0018H     0006H     UNIT         _DATA_GROUP_
+            DATA    001EH     0004H     UNIT         ?DT?_DELAY_MS?DELAY_DRIVER
+            DATA    0022H     0004H     UNIT         ?DT?_SDELAY_MS?DELAY_DRIVER
+            DATA    0026H     0003H     UNIT         ?DT?HOME_AUTOMATION_MAIN
+            IDATA   0029H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     001DH                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     00A5H     UNIT         ?CO?HOME_AUTOMATION_DRIVERS
+            CODE    08A5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0931H     0087H     UNIT         ?C?LIB_CODE
+            CODE    09B8H     004AH     UNIT         ?PR?_LOAD?HOME_AUTOMATION_DRIVERS
+            CODE    0A02H     0049H     UNIT         ?PR?_UART_INIT?HOME_AUTOMATION_DRIVERS
+            CODE    0A4BH     003DH     UNIT         ?PR?EX0_ISR?HOME_AUTOMATION_DRIVERS
+            CODE    0A88H     003BH     UNIT         ?PR?FUN?HOME_AUTOMATION_DRIVERS
+            CODE    0AC3H     0028H     UNIT         ?PR?_SDELAY_MS?DELAY_DRIVER
+            CODE    0AEBH     0024H     UNIT         ?PR?_UART_TX_STRING?HOME_AUTOMATION_DRIVERS
+            CODE    0B0FH     001FH     UNIT         ?C_INITSEG
+            CODE    0B2EH     001FH     UNIT         ?CO?HOME_AUTOMATION_MAIN
+            CODE    0B4DH     001BH     UNIT         ?PR?_DELAY_MS?DELAY_DRIVER
+            CODE    0B68H     0019H     UNIT         ?PR?MAIN?HOME_AUTOMATION_MAIN
+            CODE    0B81H     0013H     UNIT         ?PR?DELAY_1MS?DELAY_DRIVER
+            CODE    0B94H     0012H     UNIT         ?PR?FLOOR_MENU1?HOME_AUTOMATION_DRIVERS
+            CODE    0BA6H     0012H     UNIT         ?PR?FLOOR_MENU2?HOME_AUTOMATION_DRIVERS
+            CODE    0BB8H     0012H     UNIT         ?PR?FLOOR_MENU3?HOME_AUTOMATION_DRIVERS
+            CODE    0BCAH     0010H     UNIT         ?PR?UART_HANDLER?HOME_AUTOMATION_DRIVERS
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 2
+
+
+            CODE    0BDAH     000DH     UNIT         ?PR?FLOOR_MENU0?HOME_AUTOMATION_DRIVERS
+            CODE    0BE7H     000DH     UNIT         ?PR?MAIN_MENU?HOME_AUTOMATION_DRIVERS
+            CODE    0BF4H     000BH     UNIT         ?PR?ENABLE_EX_INTERRUPT?HOME_AUTOMATION_DRIVERS
+            CODE    0BFFH     0008H     UNIT         ?PR?_UART_TX?HOME_AUTOMATION_DRIVERS
+            CODE    0C07H     0006H     UNIT         ?PR?LOAD1?HOME_AUTOMATION_DRIVERS
+            CODE    0C0DH     0003H     UNIT         ?PR?LOAD2?HOME_AUTOMATION_DRIVERS
+            CODE    0C10H     0003H     UNIT         ?PR?LOAD3?HOME_AUTOMATION_DRIVERS
+            CODE    0C13H     0003H     UNIT         ?PR?LOAD4?HOME_AUTOMATION_DRIVERS
+            CODE    0C16H     0003H     UNIT         ?PR?LOAD5?HOME_AUTOMATION_DRIVERS
+            CODE    0C19H     0003H     UNIT         ?PR?LOAD6?HOME_AUTOMATION_DRIVERS
+            CODE    0C1CH     0003H     UNIT         ?PR?LOAD7?HOME_AUTOMATION_DRIVERS
+            CODE    0C1FH     0003H     UNIT         ?PR?LOAD8?HOME_AUTOMATION_DRIVERS
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\main_uc (DELAY_DRIVER)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+----------------------------------------------------------------
+?PR?EX0_ISR?HOME_AUTOMATION_DRIVERS              -----    -----
+  +--> ?PR?FUN?HOME_AUTOMATION_DRIVERS
+
+?PR?FUN?HOME_AUTOMATION_DRIVERS                  -----    -----
+  +--> ?PR?FLOOR_MENU0?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?FLOOR_MENU1?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?FLOOR_MENU2?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?FLOOR_MENU3?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?MAIN_MENU?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?_LOAD?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?_UART_TX?HOME_AUTOMATION_DRIVERS
+
+?PR?FLOOR_MENU0?HOME_AUTOMATION_DRIVERS          -----    -----
+  +--> ?PR?_UART_TX_STRING?HOME_AUTOMATION_D...
+
+?PR?_UART_TX_STRING?HOME_AUTOMATION_D...         001BH    0003H
+  +--> ?PR?_UART_TX?HOME_AUTOMATION_DRIVERS
+
+?PR?FLOOR_MENU1?HOME_AUTOMATION_DRIVERS          -----    -----
+  +--> ?PR?_UART_TX_STRING?HOME_AUTOMATION_D...
+
+?PR?FLOOR_MENU2?HOME_AUTOMATION_DRIVERS          -----    -----
+  +--> ?PR?_UART_TX_STRING?HOME_AUTOMATION_D...
+
+?PR?FLOOR_MENU3?HOME_AUTOMATION_DRIVERS          -----    -----
+  +--> ?PR?_UART_TX_STRING?HOME_AUTOMATION_D...
+
+?PR?MAIN_MENU?HOME_AUTOMATION_DRIVERS            -----    -----
+  +--> ?PR?_UART_TX_STRING?HOME_AUTOMATION_D...
+
+?PR?_LOAD?HOME_AUTOMATION_DRIVERS                0018H    0001H
+  +--> ?PR?LOAD1?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?LOAD2?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?LOAD3?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?LOAD4?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?LOAD5?HOME_AUTOMATION_DRIVERS
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 3
+
+
+  +--> ?PR?LOAD6?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?LOAD7?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?LOAD8?HOME_AUTOMATION_DRIVERS
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?HOME_AUTOMATION_MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?HOME_AUTOMATION_MAIN                    -----    -----
+  +--> ?PR?_UART_INIT?HOME_AUTOMATION_DRIVERS
+  +--> ?PR?ENABLE_EX_INTERRUPT?HOME_AUTOMATI...
+  +--> ?PR?_UART_TX_STRING?HOME_AUTOMATION_D...
+
+?C_INITSEG                                       -----    -----
+  +--> ?CO?HOME_AUTOMATION_DRIVERS
+  +--> ?CO?HOME_AUTOMATION_MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\main_uc (DELAY_DRIVER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DELAY_DRIVER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0B81H         PUBLIC        delay_1ms
+  D:0089H         PUBLIC        TMOD
+  C:0AC3H         PUBLIC        _sdelay_ms
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:0B4DH         PUBLIC        _delay_ms
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          DELAY_1MS
+  C:0B81H         LINE#         3
+  C:0B81H         LINE#         4
+  C:0B81H         LINE#         5
+  C:0B84H         LINE#         6
+  C:0B87H         LINE#         8
+  C:0B8AH         LINE#         9
+  C:0B8CH         LINE#         10
+  C:0B8FH         LINE#         11
+  C:0B91H         LINE#         12
+  C:0B93H         LINE#         14
+  -------         ENDPROC       DELAY_1MS
+  -------         PROC          _DELAY_MS
+  D:001EH         SYMBOL        ms
+  C:0B4DH         LINE#         15
+  C:0B55H         LINE#         16
+  C:0B55H         LINE#         17
+  C:0B62H         LINE#         18
+  C:0B67H         LINE#         19
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _SDELAY_MS
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 4
+
+
+  D:0022H         SYMBOL        ms
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0AC3H         LINE#         20
+  C:0ACBH         LINE#         21
+  C:0ACBH         LINE#         23
+  C:0AD8H         LINE#         24
+  C:0AD8H         LINE#         25
+  C:0ADAH         LINE#         26
+  C:0AE0H         LINE#         27
+  C:0AE2H         LINE#         28
+  C:0AEAH         LINE#         30
+  -------         ENDPROC       _SDELAY_MS
+  -------         ENDMOD        DELAY_DRIVER
+
+  -------         MODULE        HOME_AUTOMATION_DRIVERS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0BCAH         PUBLIC        uart_handler
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        fm0
+  D:000BH         PUBLIC        fm1
+  D:000EH         PUBLIC        fm2
+  B:00A8H.7       PUBLIC        EA
+  D:0011H         PUBLIC        fm3
+  C:0AEBH         PUBLIC        _uart_tx_string
+  C:0BFFH         PUBLIC        _uart_tx
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.0       PUBLIC        RI
+  B:00B0H.2       PUBLIC        sw1
+  B:00A0H.0       PUBLIC        l1
+  B:0098H.1       PUBLIC        TI
+  B:00A0H.1       PUBLIC        l2
+  B:00A0H.2       PUBLIC        l3
+  B:00A0H.3       PUBLIC        l4
+  B:00A0H.4       PUBLIC        l5
+  B:00A0H.5       PUBLIC        l6
+  C:09B8H         PUBLIC        _load
+  B:00A0H.6       PUBLIC        l7
+  B:0090H.0       PUBLIC        s1
+  B:00A0H.7       PUBLIC        l8
+  B:0090H.1       PUBLIC        s2
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0014H         PUBLIC        temp
+  C:0A4BH         PUBLIC        ex0_isr
+  C:0BE7H         PUBLIC        main_menu
+  C:0A88H         PUBLIC        fun
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:008DH         PUBLIC        TH1
+  C:0C07H         PUBLIC        load1
+  C:0C0DH         PUBLIC        load2
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 5
+
+
+  C:0C10H         PUBLIC        load3
+  C:0A02H         PUBLIC        _uart_init
+  C:0C13H         PUBLIC        load4
+  C:0C16H         PUBLIC        load5
+  B:0088H.6       PUBLIC        TR1
+  C:0C19H         PUBLIC        load6
+  C:0C1CH         PUBLIC        load7
+  D:0015H         PUBLIC        mm
+  C:0C1FH         PUBLIC        load8
+  C:0BDAH         PUBLIC        floor_menu0
+  C:0B94H         PUBLIC        floor_menu1
+  C:0BA6H         PUBLIC        floor_menu2
+  C:0BB8H         PUBLIC        floor_menu3
+  C:0BF4H         PUBLIC        enable_ex_interrupt
+  -------         PROC          UART_HANDLER
+  C:0BCAH         LINE#         22
+  C:0BCAH         LINE#         24
+  C:0BCDH         LINE#         25
+  C:0BCDH         LINE#         26
+  C:0BCFH         LINE#         27
+  C:0BD2H         LINE#         28
+  C:0BD4H         LINE#         30
+  C:0BD4H         LINE#         31
+  C:0BD7H         LINE#         32
+  C:0BD9H         LINE#         33
+  -------         ENDPROC       UART_HANDLER
+  -------         PROC          EX0_ISR
+  C:0A4BH         LINE#         35
+  C:0A68H         LINE#         37
+  C:0A6AH         LINE#         38
+  C:0A6DH         LINE#         39
+  -------         ENDPROC       EX0_ISR
+  -------         PROC          ENABLE_EX_INTERRUPT
+  C:0BF4H         LINE#         48
+  C:0BF4H         LINE#         49
+  C:0BF4H         LINE#         50
+  C:0BF8H         LINE#         51
+  C:0BFAH         LINE#         52
+  C:0BFEH         LINE#         54
+  -------         ENDPROC       ENABLE_EX_INTERRUPT
+  -------         PROC          _UART_INIT
+  D:0004H         SYMBOL        baud
+  C:0A02H         LINE#         57
+  C:0A02H         LINE#         58
+  C:0A02H         LINE#         59
+  C:0A05H         LINE#         60
+  C:0A08H         LINE#         61
+  C:0A2DH         LINE#         62
+  C:0A2DH         LINE#         63
+  C:0A32H         LINE#         64
+  C:0A37H         LINE#         65
+  C:0A3CH         LINE#         66
+  C:0A3EH         LINE#         67
+  C:0A41H         LINE#         68
+  C:0A44H         LINE#         69
+  C:0A44H         LINE#         70
+  C:0A46H         LINE#         71
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 6
+
+
+  C:0A4AH         LINE#         72
+  -------         ENDPROC       _UART_INIT
+  -------         PROC          _UART_TX
+  D:0007H         SYMBOL        Data
+  C:0BFFH         LINE#         73
+  C:0BFFH         LINE#         74
+  C:0BFFH         LINE#         75
+  C:0C01H         LINE#         76
+  C:0C04H         LINE#         77
+  C:0C06H         LINE#         78
+  -------         ENDPROC       _UART_TX
+  -------         PROC          _UART_TX_STRING
+  D:001BH         SYMBOL        ptr
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0AEBH         LINE#         79
+  C:0AF1H         LINE#         80
+  C:0AF1H         LINE#         82
+  C:0B08H         LINE#         83
+  C:0B08H         LINE#         84
+  C:0B0BH         LINE#         85
+  C:0B0EH         LINE#         86
+  -------         ENDPROC       _UART_TX_STRING
+  -------         PROC          FUN
+  C:0A88H         LINE#         89
+  C:0A88H         LINE#         90
+  C:0A88H         LINE#         92
+  C:0A9CH         LINE#         93
+  C:0A9CH         LINE#         94
+  C:0A9CH         LINE#         95
+  C:0A9FH         LINE#         96
+  C:0AA1H         LINE#         97
+  C:0AA1H         LINE#         98
+  C:0AA4H         LINE#         99
+  C:0AA6H         LINE#         100
+  C:0AA6H         LINE#         101
+  C:0AA9H         LINE#         102
+  C:0AABH         LINE#         103
+  C:0AABH         LINE#         104
+  C:0AAEH         LINE#         105
+  C:0AB0H         LINE#         106
+  C:0AB0H         LINE#         107
+  C:0AB3H         LINE#         108
+  C:0AB3H         LINE#         109
+  C:0AB9H         LINE#         110
+  C:0ABEH         LINE#         111
+  C:0ABEH         LINE#         112
+  C:0ABEH         LINE#         113
+  -------         ENDPROC       FUN
+  -------         PROC          FLOOR_MENU0
+  C:0BDAH         LINE#         115
+  C:0BDAH         LINE#         116
+  C:0BDAH         LINE#         117
+  C:0BDEH         LINE#         118
+  -------         ENDPROC       FLOOR_MENU0
+  -------         PROC          FLOOR_MENU1
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 7
+
+
+  C:0B94H         LINE#         120
+  C:0B94H         LINE#         121
+  C:0B94H         LINE#         122
+  C:0B98H         LINE#         123
+  C:0BA1H         LINE#         124
+  C:0BA3H         LINE#         125
+  C:0BA5H         LINE#         126
+  -------         ENDPROC       FLOOR_MENU1
+  -------         PROC          FLOOR_MENU2
+  C:0BA6H         LINE#         127
+  C:0BA6H         LINE#         128
+  C:0BA6H         LINE#         129
+  C:0BAAH         LINE#         130
+  C:0BB3H         LINE#         131
+  C:0BB5H         LINE#         132
+  C:0BB7H         LINE#         133
+  -------         ENDPROC       FLOOR_MENU2
+  -------         PROC          FLOOR_MENU3
+  C:0BB8H         LINE#         134
+  C:0BB8H         LINE#         135
+  C:0BB8H         LINE#         136
+  C:0BBCH         LINE#         137
+  C:0BC5H         LINE#         138
+  C:0BC7H         LINE#         139
+  C:0BC9H         LINE#         140
+  -------         ENDPROC       FLOOR_MENU3
+  -------         PROC          MAIN_MENU
+  C:0BE7H         LINE#         141
+  C:0BE7H         LINE#         142
+  C:0BE7H         LINE#         143
+  C:0BEBH         LINE#         144
+  -------         ENDPROC       MAIN_MENU
+  -------         PROC          _LOAD
+  D:0018H         SYMBOL        t
+  C:09B8H         LINE#         146
+  C:09BAH         LINE#         147
+  C:09BAH         LINE#         148
+  C:09E9H         LINE#         149
+  C:09E9H         LINE#         150
+  C:09ECH         LINE#         151
+  C:09ECH         LINE#         152
+  C:09EFH         LINE#         153
+  C:09EFH         LINE#         154
+  C:09F2H         LINE#         155
+  C:09F2H         LINE#         156
+  C:09F5H         LINE#         157
+  C:09F5H         LINE#         158
+  C:09F8H         LINE#         159
+  C:09F8H         LINE#         160
+  C:09FBH         LINE#         161
+  C:09FBH         LINE#         162
+  C:09FEH         LINE#         163
+  C:09FEH         LINE#         164
+  C:0A01H         LINE#         165
+  C:0A01H         LINE#         166
+  C:0A01H         LINE#         167
+  C:0A01H         LINE#         168
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 8
+
+
+  C:0A01H         LINE#         169
+  -------         ENDPROC       _LOAD
+  -------         PROC          LOAD1
+  C:0C07H         LINE#         171
+  C:0C07H         LINE#         172
+  C:0C07H         LINE#         173
+  C:0C0CH         LINE#         174
+  -------         ENDPROC       LOAD1
+  -------         PROC          LOAD2
+  C:0C0DH         LINE#         176
+  C:0C0DH         LINE#         177
+  C:0C0DH         LINE#         178
+  C:0C0FH         LINE#         179
+  -------         ENDPROC       LOAD2
+  -------         PROC          LOAD3
+  C:0C10H         LINE#         181
+  C:0C10H         LINE#         182
+  C:0C10H         LINE#         183
+  C:0C12H         LINE#         184
+  -------         ENDPROC       LOAD3
+  -------         PROC          LOAD4
+  C:0C13H         LINE#         186
+  C:0C13H         LINE#         187
+  C:0C13H         LINE#         188
+  C:0C15H         LINE#         189
+  -------         ENDPROC       LOAD4
+  -------         PROC          LOAD5
+  C:0C16H         LINE#         191
+  C:0C16H         LINE#         192
+  C:0C16H         LINE#         193
+  C:0C18H         LINE#         194
+  -------         ENDPROC       LOAD5
+  -------         PROC          LOAD6
+  C:0C19H         LINE#         195
+  C:0C19H         LINE#         196
+  C:0C19H         LINE#         197
+  C:0C1BH         LINE#         198
+  -------         ENDPROC       LOAD6
+  -------         PROC          LOAD7
+  C:0C1CH         LINE#         200
+  C:0C1CH         LINE#         201
+  C:0C1CH         LINE#         202
+  C:0C1EH         LINE#         203
+  -------         ENDPROC       LOAD7
+  -------         PROC          LOAD8
+  C:0C1FH         LINE#         204
+  C:0C1FH         LINE#         205
+  C:0C1FH         LINE#         206
+  C:0C21H         LINE#         207
+  -------         ENDPROC       LOAD8
+  -------         ENDMOD        HOME_AUTOMATION_DRIVERS
+
+  -------         MODULE        HOME_AUTOMATION_MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0B68H         PUBLIC        main
+  D:0026H         PUBLIC        menu
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/26/2021  02:07:59  PAGE 9
+
+
+  C:0B68H         LINE#         3
+  C:0B68H         LINE#         4
+  C:0B68H         LINE#         5
+  C:0B73H         LINE#         6
+  C:0B76H         LINE#         7
+  C:0B7FH         LINE#         8
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        HOME_AUTOMATION_MAIN
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0931H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0967H         PUBLIC        ?C?LLDIIDATA
+  C:095EH         PUBLIC        ?C?LLDIIDATA1
+  C:0960H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        ?C?LCASE
+  C:097EH         PUBLIC        ?C?LCASE
+  -------         ENDMOD        ?C?LCASE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?DELAY_DRIVER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SDELAY_MS?DELAY_DRIVER
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_UART_TX_STRING?HOME_AUTOMATION_DRIVERS
+    CALLER1: ?PR?EX0_ISR?HOME_AUTOMATION_DRIVERS
+    CALLER2: ?C_C51STARTUP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0314H BYTE (38%) *
+******************************************************************************
+
+Program Size: data=42.0 xdata=0 code=1067
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

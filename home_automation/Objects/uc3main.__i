@@ -1,0 +1,1 @@
+"uc3main.c" OPTIMIZE (8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\uc3main.lst) TABS (2) OBJECT(.\Objects\uc3main.obj)

@@ -1,0 +1,5 @@
+".\Objects\delay_driver.obj",
+".\Objects\uc2driver.obj",
+".\Objects\uc2main.obj" 
+TO ".\Objects\uc2" 
+PRINT(".\Listings\uc2.m51")

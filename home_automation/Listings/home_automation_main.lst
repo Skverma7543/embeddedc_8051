@@ -1,0 +1,33 @@
+C51 COMPILER V9.50a   HOME_AUTOMATION_MAIN                                                 01/26/2021 01:55:45 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE HOME_AUTOMATION_MAIN
+OBJECT MODULE PLACED IN .\Objects\home_automation_main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE home_automation_main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT
+                    -(.\Listings\home_automation_main.lst) TABS(2) OBJECT(.\Objects\home_automation_main.obj)
+
+line level    source
+
+   1          #include "header.h"
+   2          u8 *menu="welcome\r\npress m to see menu\r\n";
+   3          void main()
+   4          {
+   5   1        uart_init(9600);
+   6   1        enable_ex_interrupt();
+   7   1        uart_tx_string(menu);
+   8   1          while(1);
+   9   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =     31    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

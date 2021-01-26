@@ -1,0 +1,34 @@
+C51 COMPILER V9.50a   UC3MAIN                                                              01/25/2021 20:39:13 PAGE 1   
+
+
+C51 COMPILER V9.50a, COMPILATION OF MODULE UC3MAIN
+OBJECT MODULE PLACED IN .\Objects\uc3main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE uc3main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\u
+                    -c3main.lst) TABS(2) OBJECT(.\Objects\uc3main.obj)
+
+line level    source
+
+   1          #include "header.h"
+   2          //code u8 *menu="menu\r\n1.bulb1\r\n2.bulb2\r\n3.fan1\r\n4.fan2\r\n";
+   3          void main()
+   4          {
+   5   1        uart_init(9600);
+   6   1        enable_ex_interrupt();
+*** WARNING C206 IN LINE 6 OF uc3main.c: 'enable_ex_interrupt': missing function-prototype
+   7   1        uart_tx_string("hello");
+   8   1          while(1);
+   9   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
